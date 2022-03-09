@@ -14,12 +14,14 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class Main2048 extends AppCompatActivity {
     OnSwipeTouchListener onSwipeTouchListener;
     static TextView[][] textViewArray = new TextView[4][4];
     int count = 1;
-    static private int score = 0;
-    static TextView scoreText;
+    private int score = 0;
+    TextView scoreText;
 
 
     @Override
@@ -29,7 +31,7 @@ public class Main2048 extends AppCompatActivity {
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main2048);
         onSwipeTouchListener = new OnSwipeTouchListener(this, findViewById(R.id.pantalla));
-        scoreText = findViewById(R.id.score);
+        scoreText = (android.widget.TextView) findViewById(R.id.score);
 
         //añadir textviews a la array
         for (int i = 0; i < textViewArray.length; i++)
@@ -46,7 +48,7 @@ public class Main2048 extends AppCompatActivity {
         onSwipeTouchListener.generateNumber();
     }
 
-    public static class OnSwipeTouchListener implements View.OnTouchListener {
+    public class OnSwipeTouchListener implements View.OnTouchListener {
         private final GestureDetector gestureDetector;
         Context context;
 
@@ -142,7 +144,6 @@ public class Main2048 extends AppCompatActivity {
             generateNumber();
             changeColors();
             updateScore();
-            this.onSwipe.swipeRight();
         }
 
         private void bucleSwipeRight(){
@@ -166,7 +167,6 @@ public class Main2048 extends AppCompatActivity {
             generateNumber();
             changeColors();
             updateScore();
-            this.onSwipe.swipeLeft();
         }
 
         private void bucleSwipeLeft() {
@@ -194,7 +194,6 @@ public class Main2048 extends AppCompatActivity {
             generateNumber();
             changeColors();
             updateScore();
-            this.onSwipe.swipeTop();
         }
 
         private void bucleSwipeTop() {
@@ -220,7 +219,6 @@ public class Main2048 extends AppCompatActivity {
             generateNumber();
             changeColors();
             updateScore();
-            this.onSwipe.swipeBottom();
         }
 
         private void bucleSwipeBottom(){
@@ -240,17 +238,9 @@ public class Main2048 extends AppCompatActivity {
         }
 
         private void updateScore(){
-            Log.d(TAG, "ñ updateScore: " + score);
-            scoreText.setText(score);
+            Log.d(TAG, "updateScore: " + score);
+            scoreText.setText(String.valueOf(score));
         }
-
-        interface onSwipeListener {
-            void swipeRight();
-            void swipeTop();
-            void swipeBottom();
-            void swipeLeft();
-        }
-        onSwipeListener onSwipe;
 
         //funcion que cambia todos los colores de las casillas por el color correspondiente
         void changeColors(){
