@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GameCenterJosepfs</string>
+    <string name="win">Has ganado!!</string>
+    <string name="lose">Has perdido </string>
 </resources>

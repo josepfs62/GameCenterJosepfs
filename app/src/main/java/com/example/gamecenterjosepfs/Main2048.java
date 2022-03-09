@@ -2,7 +2,6 @@ package com.example.gamecenterjosepfs;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,9 +11,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Main2048 extends AppCompatActivity {
     OnSwipeTouchListener onSwipeTouchListener;
@@ -22,6 +20,7 @@ public class Main2048 extends AppCompatActivity {
     int count = 1;
     private int score = 0;
     TextView scoreText;
+    boolean win = false;
 
 
     @Override
@@ -114,6 +113,7 @@ public class Main2048 extends AppCompatActivity {
                         textViewArray[i][j].setText(String.valueOf(aux));
                         textViewArray[i][j + 1].setText("");
                         calculate = true;
+                        checkWin(aux);
                     }
                 }
             }
@@ -132,6 +132,7 @@ public class Main2048 extends AppCompatActivity {
                         textViewArray[i][j].setText(String.valueOf(aux));
                         textViewArray[i + 1][j].setText("");
                         calculate = true;
+                        checkWin(aux);
                     }
                 }
             }
@@ -278,7 +279,11 @@ public class Main2048 extends AppCompatActivity {
                 }
             }
             if(ocupado){
-
+                if(checkLose()){
+                    Log.d(TAG, "PERDISTE");
+                    LoseFragment loseFragment = new LoseFragment();
+                    loseFragment.show(getSupportFragmentManager(), null);
+                };
             }
             if (!ocupado){
                 boolean number = true;
@@ -295,5 +300,33 @@ public class Main2048 extends AppCompatActivity {
                 }
             }
         }
+
+        public boolean checkLose(){
+            boolean lose = true;
+            for (int i = 0; i < textViewArray.length; i++) {
+                for (int j = 0; j < textViewArray[1].length-1; j++) {
+                    if (String.valueOf(textViewArray[i][j].getText()).equals(String.valueOf(textViewArray[i][j+1].getText()))){
+                        lose = false;
+                    }
+                }
+            }
+            for (int i = 0; i < textViewArray.length-1; i++) {
+                for (int j = 0; j < textViewArray[1].length; j++) {
+                    if (String.valueOf(textViewArray[i][j].getText()).equals(String.valueOf(textViewArray[i+1][j].getText()))){
+                        lose = false;
+                    }
+                }
+            }
+            return lose;
+        }
+
+        public void checkWin(int aux){
+            if(aux == 2048 && !win){
+                Log.d(TAG, "GANASTE");
+                WinFragment winFragment = new WinFragment();
+                winFragment.show(getSupportFragmentManager(), null);
+                win = true;
+            }
+        };
     }
 }
