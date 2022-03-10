@@ -2,11 +2,13 @@ package com.example.gamecenterjosepfs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Menu extends AppCompatActivity {
 
@@ -16,34 +18,19 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_mainmenu);
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.splash);
 
-        button = (Button) findViewById(R.id.buttonTo2048);
-        button.setOnClickListener(new View.OnClickListener() {
+        TimerTask tarea = new TimerTask() {
             @Override
-            public void onClick(View view) {
-                open2048();
+            public void run() {
+                Intent intent = new Intent(Menu.this, MenuApp.class);
+                startActivity(intent);
+                finish();
             }
-        });
+        };
 
-        button = (Button) findViewById(R.id.buttonToPeg);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openPeg();
-            }
-        });
-
-    }
-
-    public void open2048(){
-        Intent intent = new Intent(this, Main2048.class);
-        startActivity(intent);
-    }
-
-    public void openPeg(){
-        Intent intent = new Intent(this, MainPeg.class);
-        startActivity(intent);
+        Timer timer = new Timer();
+        timer.schedule(tarea, 2000);
     }
 }

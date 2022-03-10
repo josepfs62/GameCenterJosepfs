@@ -41,9 +41,7 @@
             android:id="@+id/b3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
+            android:background="@drawable/emptybutton"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -68,6 +66,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -116,8 +116,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -126,8 +124,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -190,8 +186,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -200,8 +194,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -210,8 +202,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -244,8 +234,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -330,6 +318,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -338,6 +328,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -377,7 +369,7 @@
             android:id="@+id/b41"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/emptybutton"
+            android:background="@drawable/roundedbutton"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -402,6 +394,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -410,6 +404,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -418,6 +414,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -466,6 +464,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -474,6 +474,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -482,6 +484,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -510,8 +514,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
-            android:clickable="false"
-            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -536,6 +538,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -604,6 +608,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -612,6 +618,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -620,6 +628,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -688,6 +698,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -696,6 +708,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -704,6 +718,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 

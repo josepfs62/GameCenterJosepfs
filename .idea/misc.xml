@@ -3,13 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3285" />
         <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/drawable-v24/roundedbutton.xml" value="0.22" />
         <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/drawable-v24/roundedbuttonclicked.xml" value="0.22" />
         <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/drawable/emptybutton.xml" value="0.3205" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/drawable/ic_launcher_backgorund.xml" value="0.139" />
         <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_main2048.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_mainmenu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_mainmenu.xml" value="0.3484848484848485" />
         <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_mainpeg.xml" value="0.33" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_mainpeg2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_mainpeg3.xml" value="0.4282238442822384" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/activity_mainpeg4.xml" value="0.5" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/menupeg.xml" value="0.34595959595959597" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/scoreboard.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josep/AndroidStudioProjects/GameCenterJosepfs/app/src/main/res/layout/splash.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

@@ -10,6 +10,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,8 @@ public class Main2048 extends AppCompatActivity {
     private int score = 0;
     TextView scoreText;
     boolean win = false;
-
+    private Chronometer timer;
+    private boolean timerBoolean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class Main2048 extends AppCompatActivity {
         setContentView(R.layout.activity_main2048);
         onSwipeTouchListener = new OnSwipeTouchListener(this, findViewById(R.id.pantalla));
         scoreText = (android.widget.TextView) findViewById(R.id.score);
+        timer = (Chronometer) findViewById(R.id.timer);
+        timerBoolean = true;
 
         //añadir textviews a la array
         for (int i = 0; i < textViewArray.length; i++)
@@ -71,6 +75,9 @@ public class Main2048 extends AppCompatActivity {
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 boolean result = false;
+                if (timerBoolean){
+                    timer.start();
+                }
                 try {
                     float diffY = e2.getY() - e1.getY();
                     float diffX = e2.getX() - e1.getX();
@@ -310,6 +317,7 @@ public class Main2048 extends AppCompatActivity {
                 if(checkLose()){
                     LoseFragment loseFragment = new LoseFragment();
                     loseFragment.show(getSupportFragmentManager(), null);
+                    timer.stop();
                 };
             }
             if (!ocupado){
@@ -353,6 +361,7 @@ public class Main2048 extends AppCompatActivity {
                 WinFragment winFragment = new WinFragment();
                 winFragment.show(getSupportFragmentManager(), null);
                 win = true;
+                timer.stop();
             }
         };
     }

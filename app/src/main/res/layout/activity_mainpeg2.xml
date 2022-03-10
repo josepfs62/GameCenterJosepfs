@@ -274,6 +274,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -346,6 +348,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -418,6 +422,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -688,6 +694,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -696,6 +704,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
@@ -704,6 +714,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedbutton"
+            android:clickable="false"
+            android:visibility="gone"
             app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck, TouchTargetSizeCheck" />
 
