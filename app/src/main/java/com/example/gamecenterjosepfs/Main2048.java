@@ -96,6 +96,7 @@ public class Main2048 extends AppCompatActivity {
                 catch (Exception exception) {
                     exception.printStackTrace();
                 }
+                changeColors();
                 return result;
             }
         }
@@ -117,6 +118,7 @@ public class Main2048 extends AppCompatActivity {
                     }
                 }
             }
+            changeColors();
         }
 
         private void addVertical() {
@@ -143,7 +145,6 @@ public class Main2048 extends AppCompatActivity {
             addHorizontal();
             bucleSwipeRight();
             generateNumber();
-            changeColors();
             updateScore();
         }
 
@@ -166,7 +167,6 @@ public class Main2048 extends AppCompatActivity {
             addHorizontal();
             bucleSwipeLeft();
             generateNumber();
-            changeColors();
             updateScore();
         }
 
@@ -193,7 +193,6 @@ public class Main2048 extends AppCompatActivity {
             addVertical();
             bucleSwipeTop();
             generateNumber();
-            changeColors();
             updateScore();
         }
 
@@ -218,7 +217,6 @@ public class Main2048 extends AppCompatActivity {
             addVertical();
             bucleSwipeBottom();
             generateNumber();
-            changeColors();
             updateScore();
         }
 
@@ -245,24 +243,54 @@ public class Main2048 extends AppCompatActivity {
 
         //funcion que cambia todos los colores de las casillas por el color correspondiente
         void changeColors(){
-            for (int l = 0; l < 4; l++) {
-                for (int p = 0; p < 4; p++) {
-                    if (textViewArray[l][p].getText() == ""){
-                        textViewArray[l][p].setBackgroundColor(Color.parseColor("#a9a9a9"));
+            Log.d(TAG, "changeColors: ");
+            for (TextView[] tv: textViewArray) {
+                for (TextView tv1: tv) {
+                    if (tv1.getText().equals("")){
+                        tv1.setBackgroundColor(Color.parseColor("#e8e2f6"));
                     }
-                    if (textViewArray[l][p].getText() == "2"){
-                        textViewArray[l][p].setBackgroundColor(Color.parseColor("#ffbc40"));
+                    else if (tv1.getText().equals("2")){
+                        tv1.setBackgroundColor(Color.parseColor("#cabcec"));
                     }
-                    if (textViewArray[l][p].getText() == "4"){
-                        textViewArray[l][p].setBackgroundColor(Color.parseColor("#FF0000"));
+                    else if (tv1.getText().equals("4")){
+                        tv1.setBackgroundColor(Color.parseColor("#ad96e1"));
                     }
-                    if (textViewArray[l][p].getText() == "8"){
-                        textViewArray[l][p].setBackgroundColor(Color.parseColor("#0000FF"));
+                    else if (tv1.getText().equals("8")){
+                        tv1.setBackgroundColor(Color.parseColor("#8f6fd6"));
                     }
-                    if (textViewArray[l][p].getText() == "16"){
-                        textViewArray[l][p].setBackgroundColor(Color.parseColor("#00A36C"));
-                    } else {
-                        textViewArray[l][p].setBackgroundColor(Color.parseColor("#a9a9a9"));
+                    else if (tv1.getText().equals("16")){
+                        tv1.setBackgroundColor(Color.parseColor("#7149cb"));
+                    }
+                    else if (tv1.getText().equals("32")){
+                        tv1.setBackgroundColor(Color.parseColor("#5932b2"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
+                    }
+                    else if (tv1.getText().equals("64")){
+                        tv1.setBackgroundColor(Color.parseColor("#46278b"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
+                    }
+                    else if (tv1.getText().equals("128")){
+                        tv1.setBackgroundColor(Color.parseColor("#331c65"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
+                    }
+                    else if (tv1.getText().equals("256")){
+                        tv1.setBackgroundColor(Color.parseColor("#532ea6"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
+                    }
+                    else if (tv1.getText().equals("512")){
+                        tv1.setBackgroundColor(Color.parseColor("#532ea6"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
+                    }
+                    else if (tv1.getText().equals("1024")){
+                        tv1.setBackgroundColor(Color.parseColor("#40237f"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
+                    }
+                    else if (tv1.getText().equals("2048")){
+                        tv1.setBackgroundColor(Color.parseColor("#2d1859"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white)); } else
+                    {
+                        tv1.setBackgroundColor(Color.parseColor("#190e33"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
                     }
                 }
             }
@@ -295,6 +323,7 @@ public class Main2048 extends AppCompatActivity {
                         //hacer probabilidad de que aparezca y que sea 2 o 4
                         //if (Math.random())
                         textViewArray[r][c].setText("2");
+                        textViewArray[r][c].setBackgroundColor(Color.parseColor("#cabcec"));
                         number = false;
                     }
                 }
