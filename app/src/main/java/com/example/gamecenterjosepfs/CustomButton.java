@@ -11,6 +11,7 @@ public class CustomButton extends androidx.appcompat.widget.AppCompatButton {
 
     public CustomButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        isEmpty = !super.isClickable();
     }
 
     public boolean getPulsado() {
@@ -19,10 +20,10 @@ public class CustomButton extends androidx.appcompat.widget.AppCompatButton {
 
     public void setPulsado(boolean pulsado) {
         this.pulsado = pulsado;
-        if (this.getPulsado()) {
-            this.setBackground(this.getResources().getDrawable(R.drawable.roundedbuttonclicked));
+        if (pulsado) {
+            this.setBackgroundDrawable(this.getResources().getDrawable(R.drawable.roundedbuttonclicked));
         } else {
-            this.setBackground(this.getResources().getDrawable(R.drawable.roundedbutton));
+            this.setBackgroundDrawable(this.getResources().getDrawable(R.drawable.roundedbutton));
         }
     }
 

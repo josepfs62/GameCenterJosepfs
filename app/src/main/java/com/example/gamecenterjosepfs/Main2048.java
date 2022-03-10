@@ -308,7 +308,6 @@ public class Main2048 extends AppCompatActivity {
             }
             if(ocupado){
                 if(checkLose()){
-                    Log.d(TAG, "PERDISTE");
                     LoseFragment loseFragment = new LoseFragment();
                     loseFragment.show(getSupportFragmentManager(), null);
                 };
@@ -351,7 +350,6 @@ public class Main2048 extends AppCompatActivity {
 
         public void checkWin(int aux){
             if(aux == 2048 && !win){
-                Log.d(TAG, "GANASTE");
                 WinFragment winFragment = new WinFragment();
                 winFragment.show(getSupportFragmentManager(), null);
                 win = true;

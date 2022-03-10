@@ -2,7 +2,6 @@ package com.example.gamecenterjosepfs;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,7 +37,6 @@ public class MainPeg extends AppCompatActivity {
                         if (currentButton != null) {
                             previousButton = currentButton;
                             if (((CustomButton)view).getEmpty() && (previousButton.getEmpty())){
-                                Log.d("Ha entrado", "onTouch: ");
                                 previousButton = null;
                                 currentButton = null;
                                 return false;
@@ -48,14 +46,22 @@ public class MainPeg extends AppCompatActivity {
                         if(!currentButton.getEmpty()){
                             currentButton.setPulsado(!currentButton.getPulsado());
                         }
-                        if(previousButton != null) {
-                            Log.d("Fila", "Current Fila: " + currentButton.getI());
-                            Log.d("Columna", "Current Column: " + currentButton.getJ());
-                            Log.d("Fila", "Previous Fila: " + previousButton.getI());
-                            Log.d("Columna", "Previous Column: " + previousButton.getJ());
+                        if(previousButton != null && currentButton != null) {
+//                            Log.d("Fila", "Current Fila: " + currentButton.getI());
+//                            Log.d("Columna", "Current Column: " + currentButton.getJ());
+//                            Log.d("Fila", "Previous Fila: " + previousButton.getI());
+//                            Log.d("Columna", "Previous Column: " + previousButton.getJ());
                             boolean moved = validateMovement();
-                            if (!moved && !previousButton.getEmpty()){
-                                previousButton.setBackground(getResources().getDrawable(R.drawable.roundedbutton));
+                            if (!moved && !previousButton.getEmpty() && !previousButton.toString().equals(currentButton.toString())){
+                                previousButton.setPulsado(false);
+                            }
+                            if (!moved && currentButton.getEmpty()){
+                                currentButton = null;
+                                previousButton = null;
+                            }
+                            if(moved){
+                                checkWin();
+                                checkLose();
                             }
                         }
 
@@ -71,19 +77,60 @@ public class MainPeg extends AppCompatActivity {
             if ((previousButton.getJ()- currentButton.getJ() == 0) && (Math.abs(currentButton.getI() - previousButton.getI()) == 2) || (previousButton.getI()- currentButton.getI() == 0) && (Math.abs(currentButton.getJ() - previousButton.getJ()) == 2)) {
                 CustomButton middleButton = buttonsList[previousButton.getI()+(currentButton.getI()- previousButton.getI())/2][previousButton.getJ()+(currentButton.getJ()- previousButton.getJ())/2];
                 if(!middleButton.getEmpty()) {
-                    middleButton.setBackground(this.getResources().getDrawable(R.drawable.emptybutton));
-                    middleButton.setEmpty(true);
-                    currentButton.setBackground(this.getResources().getDrawable(R.drawable.roundedbutton));
+                    currentButton.setPulsado(false);
                     currentButton.setEmpty(false);
                     currentButton = null;
-                    previousButton.setEmpty(true);
+                    middleButton.setBackground(this.getResources().getDrawable(R.drawable.emptybutton));
+                    middleButton.setEmpty(true);
                     previousButton.setBackground(this.getResources().getDrawable(R.drawable.emptybutton));
+                    previousButton.setEmpty(true);
                     previousButton = null;
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    private void checkLose(){
+        boolean lose = true;
+        for (int i = 0; i < buttonsList.length-1; i++) {
+            for (int j = 0; j < buttonsList[0].length; j++) {
+                if ((buttonsList[i][j].isEmpty) && (buttonsList[i+1][j].isEmpty)){
+                    lose = false;
+                }
+            }
+        }
+        for (int i = 0; i < buttonsList.length; i++) {
+            for (int j = 0; j < buttonsList[0].length-1; j++) {
+                if ((buttonsList[i][j].isEmpty) && (buttonsList[i][j+1].isEmpty)){
+                    lose = false;
+                }
+            }
+        }
+        if (lose){
+            LoseFragment loseFragment = new LoseFragment();
+            loseFragment.show(getSupportFragmentManager(), null);
+        }
+    }
+
+    private void checkWin(){
+        boolean win = false;
+        int peg = 0;
+        for (int i = 0; i < buttonsList.length; i++) {
+            for (int j = 0; j < buttonsList.length; j++) {
+                if(!buttonsList[i][j].isEmpty){
+                    peg++;
+                    if(peg >= 2){
+                        break;
+                    }
+                }
+            }
+        }
+        if(peg == 1){
+            WinFragment winFragment = new WinFragment();
+            winFragment.show(getSupportFragmentManager(), null);
+        }
     }
 
 }
