@@ -22,8 +22,6 @@
         <activity android:name=".Main2048"/>
         <activity android:name=".MainPeg"/>
         <activity android:name=".MenuApp"/>
-        <activity android:name=".Menu"
-            tools:ignore="DuplicateActivity" />
         <activity android:name=".MenuPeg"/>
     </application>
 

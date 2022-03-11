@@ -2,6 +2,7 @@ package com.example.gamecenterjosepfs;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,7 +21,21 @@ public class MainPeg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_mainpeg);
+        int layout = getIntent().getIntExtra("layout", 1);
+        Log.d("layout", "onCreate: " + layout);
+        if(layout == 1){
+            setContentView(R.layout.activity_mainpeg);
+        }
+        if(layout == 2){
+            setContentView(R.layout.activity_mainpeg2);
+        }
+        if(layout == 3){
+            setContentView(R.layout.activity_mainpeg3);
+        }
+        if(layout == 4){
+            setContentView(R.layout.activity_mainpeg4);
+        }
+
         GridLayout gridLayout = (GridLayout) (findViewById(R.id.gridLayout));
         ((CustomButton)gridLayout.getChildAt(40)).setEmpty(true);
 

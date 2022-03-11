@@ -17,7 +17,7 @@ public class MenuPeg extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.menupeg);
+        setContentView(R.layout.activity_mainmenupeg);
 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -55,22 +55,22 @@ public class MenuPeg extends AppCompatActivity {
 
     public void openpeguno(){
         Intent intent = new Intent(this, MainPeg.class);
-//        intent.putExtra("layout", 1);
+        intent.putExtra("layout", 1);
         startActivity(intent);
     }
     public void openpegdos(){
         Intent intent = new Intent(this, MainPeg.class);
-//        intent.putExtra("layout", 2);
+        intent.putExtra("layout", 2);
         startActivity(intent);
     }
     public void openpegtres(){
         Intent intent = new Intent(this, MainPeg.class);
-//        intent.putExtra("layout", 3);
+        intent.putExtra("layout", 3);
         startActivity(intent);
     }
     public void openpegcuatro(){
         Intent intent = new Intent(this, MainPeg.class);
-//        intent.putExtra("layout", 4);
+        intent.putExtra("layout", 4);
         startActivity(intent);
     }
 }

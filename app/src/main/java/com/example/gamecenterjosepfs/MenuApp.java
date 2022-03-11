@@ -44,7 +44,7 @@ public class MenuApp extends AppCompatActivity {
     }
 
     public void openPeg() {
-        Intent intent = new Intent(this, MainPeg.class);
+        Intent intent = new Intent(this, MenuPeg.class);
         startActivity(intent);
     }
 }
