@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.gamecenterjosepfs.Main2048">
 
+    <Button
+        android:id="@+id/surrender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/garnet"
+        android:text="Rendirse"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/tablero"
         android:layout_width="wrap_content"
@@ -244,6 +256,7 @@
     </androidx.gridlayout.widget.GridLayout>
 
     <TableLayout
+        android:id="@+id/tableLayout5"
         android:layout_width="214dp"
         android:layout_height="63dp"
         app:layout_constraintBottom_toTopOf="@+id/tablero"

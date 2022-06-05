@@ -1,11 +1,10 @@
 package com.example.gamecenterjosepfs;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.SystemClock;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,8 +21,12 @@ public class Main2048 extends AppCompatActivity {
     private int score = 0;
     TextView scoreText;
     boolean win = false;
+    boolean finish = false;
     private Chronometer timer;
+    private TextView surrenderButton;
     private boolean timerBoolean;
+    private String userName;
+    private Intent myIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class Main2048 extends AppCompatActivity {
         scoreText = (android.widget.TextView) findViewById(R.id.score);
         timer = (Chronometer) findViewById(R.id.timer);
         timerBoolean = true;
+        myIntent = getIntent();
+        userName = myIntent.getStringExtra("user");
 
         //añadir textviews a la array
         for (int i = 0; i < textViewArray.length; i++)
@@ -43,10 +48,15 @@ public class Main2048 extends AppCompatActivity {
                 int id = this.getResources().getIdentifier("cuadrado" + count, "id", this.getPackageName());
                 TextView textView = findViewById(id);
                 textViewArray[i][j] = textView;
-                Log.d("TView Added", "Added " + count + textView);
                 count += 1;
             }
         }
+
+        surrenderButton = findViewById(R.id.surrender);
+        surrenderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { surrender(); }
+        });
 
         onSwipeTouchListener.generateNumber();
     }
@@ -75,7 +85,7 @@ public class Main2048 extends AppCompatActivity {
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 boolean result = false;
-                if (timerBoolean){
+                if (timerBoolean && !finish){
                     timer.start();
                 }
                 try {
@@ -117,7 +127,9 @@ public class Main2048 extends AppCompatActivity {
                     if ((actual).equals(horizontal) && !calculate && !actual.equals("")) {
                         int valueInteger = Integer.parseInt(String.valueOf(textViewArray[i][j].getText()));
                         int aux = valueInteger * 2;
-                        score += aux;
+                        if(!finish){
+                            score += aux;
+                        }
                         textViewArray[i][j].setText(String.valueOf(aux));
                         textViewArray[i][j + 1].setText("");
                         calculate = true;
@@ -137,7 +149,9 @@ public class Main2048 extends AppCompatActivity {
                     if ((actual).equals(vertical) && !calculate && !actual.equals("")) {
                         int valueInteger = Integer.parseInt(String.valueOf(textViewArray[i][j].getText()));
                         int aux = valueInteger * 2;
-                        score += aux;
+                        if(!finish){
+                            score += aux;
+                        }
                         textViewArray[i][j].setText(String.valueOf(aux));
                         textViewArray[i + 1][j].setText("");
                         calculate = true;
@@ -180,11 +194,8 @@ public class Main2048 extends AppCompatActivity {
         private void bucleSwipeLeft() {
             for (int i = 0; i <= 3; i++) {
                 //repetir 3 veces la secuencia para evitar que no pase todas las fichas a un lado
-                Log.d(TAG, "ñ NUMERO DE BUCLE " + i + "--------------------");
                 for (int k = 0; k < 3; k++) {
                     for (int j = 3; j > 0; j--) {
-                        Log.d(TAG, "ñ Fila " + k);
-                        Log.d(TAG, "ñ Columna " + j);
                         if ((textViewArray[i][j].getText() != "") && (textViewArray[i][j - 1].getText() == "")) {
                             textViewArray[i][j - 1].setText(textViewArray[i][j].getText());
                             textViewArray[i][j].setText("");
@@ -244,29 +255,34 @@ public class Main2048 extends AppCompatActivity {
         }
 
         private void updateScore(){
-            Log.d(TAG, "updateScore: " + score);
-            scoreText.setText(String.valueOf(score));
+            if(!finish){
+                scoreText.setText(String.valueOf(score));
+            }
         }
 
         //funcion que cambia todos los colores de las casillas por el color correspondiente
         void changeColors(){
-            Log.d(TAG, "changeColors: ");
             for (TextView[] tv: textViewArray) {
                 for (TextView tv1: tv) {
                     if (tv1.getText().equals("")){
                         tv1.setBackgroundColor(Color.parseColor("#e8e2f6"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
                     }
                     else if (tv1.getText().equals("2")){
                         tv1.setBackgroundColor(Color.parseColor("#cabcec"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
                     }
                     else if (tv1.getText().equals("4")){
                         tv1.setBackgroundColor(Color.parseColor("#ad96e1"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
                     }
                     else if (tv1.getText().equals("8")){
                         tv1.setBackgroundColor(Color.parseColor("#8f6fd6"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
                     }
                     else if (tv1.getText().equals("16")){
                         tv1.setBackgroundColor(Color.parseColor("#7149cb"));
+                        tv1.setTextColor(this.context.getResources().getColor(R.color.white));
                     }
                     else if (tv1.getText().equals("32")){
                         tv1.setBackgroundColor(Color.parseColor("#5932b2"));
@@ -327,10 +343,18 @@ public class Main2048 extends AppCompatActivity {
                     int c = (int) Math.floor(Math.random() * 4);
 
                     if (textViewArray[r][c].getText().equals("")) {
-                        //hacer probabilidad de que aparezca y que sea 2 o 4
-                        //if (Math.random())
-                        textViewArray[r][c].setText("2");
-                        textViewArray[r][c].setBackgroundColor(Color.parseColor("#cabcec"));
+                        if (Math.random() < 0.9){
+                            if (Math.random() < 0.7) {
+                                textViewArray[r][c].setText("2");
+                                textViewArray[r][c].setTextColor(this.context.getResources().getColor(R.color.white));
+                                textViewArray[r][c].setBackgroundColor(Color.parseColor("#cabcec"));
+                            }
+                            else{
+                                textViewArray[r][c].setText("4");
+                                textViewArray[r][c].setTextColor(this.context.getResources().getColor(R.color.white));
+                                textViewArray[r][c].setBackgroundColor(Color.parseColor("#ad96e1"));
+                            }
+                        }
                         number = false;
                     }
                 }
@@ -358,11 +382,31 @@ public class Main2048 extends AppCompatActivity {
 
         public void checkWin(int aux){
             if(aux == 2048 && !win){
-                WinFragment winFragment = new WinFragment();
-                winFragment.show(getSupportFragmentManager(), null);
+                timer.stop();
+                finish = true;
+                WinFragment2048 winFragment2048 = new WinFragment2048();
+                Bundle args = new Bundle();
+                args.putInt("score", score);
+                args.putInt("time", (int) timer.getBase());
+                args.putString("userName", userName);
+                winFragment2048.setArguments(args);
+                winFragment2048.show(getSupportFragmentManager(), null);
                 win = true;
                 timer.stop();
             }
         };
+    }
+    private void surrender(){
+        timer.stop();
+        finish = true;
+        SurrenderFragment2048 surrenderFragment2048 = new SurrenderFragment2048();
+        Bundle args = new Bundle();
+        args.putInt("score", score);
+        args.putString("userName", userName);
+        long timeDeltaFromStartInMs = (SystemClock.elapsedRealtime() - timer.getBase());
+        int numLevelsElapsed = (int) (timeDeltaFromStartInMs / 10000);
+        args.putInt("time", numLevelsElapsed);
+        surrenderFragment2048.setArguments(args);
+        surrenderFragment2048.show(getSupportFragmentManager(), null);
     }
 }

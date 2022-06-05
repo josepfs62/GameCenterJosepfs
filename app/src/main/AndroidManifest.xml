@@ -23,6 +23,9 @@
         <activity android:name=".MainPeg"/>
         <activity android:name=".MenuApp"/>
         <activity android:name=".MenuPeg"/>
+        <activity android:name=".MainScore"/>
+        <activity android:name=".InputUsers" />
     </application>
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>

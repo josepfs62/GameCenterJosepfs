@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,19 +15,14 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/button"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="Layout 1" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="Layout 2" />
+                android:layout_marginTop="0dp"
+                android:text="Tableros"
+                android:textAlignment="center"
+                tools:layout_centerHorizontal="false" />
         </TableRow>
 
         <TableRow
@@ -34,20 +30,47 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/layout1"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
                 android:layout_margin="15dp"
-                android:text="Layout 3" />
+                android:visibility="visible"
+                app:srcCompat="@drawable/layout1" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/layout2"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
                 android:layout_margin="15dp"
-                android:text="Layout 4" />
+                android:visibility="visible"
+                app:srcCompat="@drawable/layout2" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/layout3"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_margin="15dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/layout3" />
+
+            <ImageView
+                android:id="@+id/layout4"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_margin="15dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/layout4" />
+
         </TableRow>
 
     </TableLayout>
+
 </RelativeLayout>
